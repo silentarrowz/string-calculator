@@ -21,4 +21,14 @@ describe('String Calculator', () => {
     expect(add("1,2,3")).toBe(6);
     expect(add("4,5,6")).toBe(15);
   });
+
+  test('returns the sum of numbers separated by newlines', () => {
+    expect(add("1\n2,3")).toBe(6);
+    expect(add("4\n5\n6")).toBe(15);
+  });
+
+  test('handles a mix of commas and newlines', () => {
+    expect(add("1,2\n3")).toBe(6);
+    expect(add("7\n3,2")).toBe(12);
+  });
 });
