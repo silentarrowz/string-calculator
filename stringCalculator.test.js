@@ -31,4 +31,21 @@ describe('String Calculator', () => {
     expect(add("1,2\n3")).toBe(6);
     expect(add("7\n3,2")).toBe(12);
   });
+
+  test('supports custom delimiters specified at the start', () => {
+    expect(add("//;\n1;2")).toBe(3); // Custom delimiter ";"
+    expect(add("//|\n3|4|5")).toBe(12); // Custom delimiter "|"
+  });
+
+  test('handles custom delimiters with mixed commas and newlines', () => {
+    expect(add("//#\n1#2,3\n4")).toBe(10); // Custom delimiter "#"
+  });
+
+  test('throws exception for a single negative number', () => {
+    expect(() => add("1,-2,3")).toThrow("Negative numbers not allowed: -2");
+  });
+
+  test('throws exception for multiple negative numbers', () => {
+      expect(() => add("-1,2,-3")).toThrow("Negative numbers not allowed: -1, -3");
+  });
 });
