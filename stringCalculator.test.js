@@ -41,6 +41,10 @@ describe('String Calculator', () => {
     expect(add("//#\n1#2,3\n4")).toBe(10); // Custom delimiter "#"
   });
 
+  test('handles custom delimiters with *', () => {
+    expect(add("//*\n1*2*3*4")).toBe(24); 
+  });
+
   test('throws exception for a single negative number', () => {
     expect(() => add("1,-2,3")).toThrow("Negative numbers not allowed: -2");
   });
