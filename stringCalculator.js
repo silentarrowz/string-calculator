@@ -7,7 +7,7 @@ function add(numbers) {
   let customDelimiter;
   // Check for custom delimiter
   if (numbers.startsWith("//")) {
-    const customDelimiterPattern = "/^\/\/(.)\n/";
+    const customDelimiterPattern = /^\/\/(.)\n/;
     const delimiterMatch = numbers.match(customDelimiterPattern); 
     console.log("delimiter match : ", delimiterMatch);
     if (delimiterMatch) {
